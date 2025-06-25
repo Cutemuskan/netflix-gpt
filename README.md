@@ -8,8 +8,6 @@
 -step 7:git pull origin main --rebase
 -step 8:git push origin main
 
-
-
 # Features
 
 - Login/Sign UP
@@ -26,7 +24,12 @@
   - Search Bar
   - Movie Suggestions
 
-=> go to git hub
-  - create new repository ->netflix-gpt
+# NETFLIX GPT
+ - create-react-app
+ - configured tailwindcss => https://v3.tailwindcss.com/docs/guides/create-react-app
+ - routing setup
+  - npm install react-router-dom
+ - header
+ - Login Form
 
-# netflix-gpt
+
