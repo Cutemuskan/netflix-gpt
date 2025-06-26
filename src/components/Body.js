@@ -1,14 +1,12 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider} from 'react-router-dom';
 import Browse from './Browse';
 import Login from './Login';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { auth } from '../utils/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-
+// parent compo.
 const Body = () => {
-    const dispatch = useDispatch();
     const appRouter = createBrowserRouter([
         {
             path: "/",
@@ -23,23 +21,6 @@ const Body = () => {
 
     ])
 
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            //signin or signup this part will be exectuted we are storinng data of object of user
-            if (user) {
-                const { uid, email, password, displayName ,photoURL} = user;
-                dispatch(addUser({ uid: uid, 
-                    email: email, 
-                    password: password, 
-                    displayName: displayName, 
-                    photoURL:photoURL 
-                }));
-            } else {
-                // User is signed out
-                dispatch(removeUser());
-            }
-        });
-    }, [])
 
     return (
         <div>

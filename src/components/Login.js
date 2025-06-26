@@ -3,14 +3,13 @@ import Header from "./Header"
 import { checkValidData } from "../utils/validate.js";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase.js";
-import { navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice.js";
+import { User_Avtar } from "../utils/constants.js";
 
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errormessage, setErrorMessage] = useState(null)
-    const navigate = useNavigate();
     const dispatch = useDispatch()
     const username = useRef(null)
     const email = useRef(null); //it create a refernce to my inout for email 
@@ -38,22 +37,21 @@ const Login = () => {
                     const user = userCredential.user;
                     // after creating user ,called update profile api
                     updateProfile(user, {
-                        displayName: "username?.current?.value",
-                        photoURL: "https://avatars.githubusercontent.com/u/91940806?v=4"
+                        displayName: username?.current?.value,
+                        photoURL: User_Avtar,
                     }).then(() => {
                         // Profile updated!
                         // again we are updating the displayName and phot url. here using auth bcj it have updated value and user have created value info
-                        const { uid, email, password, displayName, photoURL } = auth.currentUser;
+                        const { uid, email,displayName, photoURL } = auth.currentUser;
+                        console.log('update user',auth.currentUser)
                         dispatch(addUser({
                             uid: uid,
                             email: email,
-                            password: password,
                             displayName: displayName,
                             photoURL: photoURL
                         }));
-                        navigate("/browse");
                     }).catch((error) => {
-                        setErrorMessage(error.errorMessage);
+                        setErrorMessage(error.message);
                     });
                 })
                 .catch((error) => {
@@ -69,7 +67,7 @@ const Login = () => {
                     // Signed in 
                     const user = userCredential.user;
                     console.log('succesfully SIGNIN', user);
-                    navigate("/browse");
+                    // navigate("/browse");
                 })
                 .catch((error) => {
                     const errorCode = error.code;

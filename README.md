@@ -60,9 +60,24 @@ now we have do deploy.
     -after signin ->update to user store
 - Update Profile api
 ============================
-feature 
--Movies
-  - fetch from TMDB API
+BUGS FIX
+- signup user displayName and profile pic of udpate profile api 
+ - if user is not logged in redirect to browse page and vicerversa
+ - Unsubscribed to the onAuthStateChanged callback
+- Add hardcoded values to the constants file for images 
+- REACT.STRICTMODE
+   - if there is inconsistency in rendering cycle in componenets then react will handle ,in prod not called two times.
+   - bcj of this we can see in useffect the api is called two times which happend in local only
+  =>  INDEX.JS FILE
+  <!-- <React.StrictMode>
+    <App />
+ </React.StrictMode> -->
+# feature 
+- Movies (TMDB API)
+   - Register TMDBP API & create an app & get access token.
+   - Get data from TMDB now playimg movies list API
+   - data is stored in browse page.
+   - create an store for movie data also in redux 
 
   
 
