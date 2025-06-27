@@ -85,6 +85,12 @@ BUGS FIX
 - Made the browse page amazing with tailwind css
 - usePopular Movies custom hooks
 
+# feature  ep-16 
+ -  Search gpt movies
+   - GPT Search Page
+   - GPT Search Bar
+   - Multi-lang Feature in ou App
+   - Integrate GPT Api
   
 
 

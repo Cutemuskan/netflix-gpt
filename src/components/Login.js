@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { auth } from "../utils/firebase.js";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice.js";
-import { User_Avtar } from "../utils/constants.js";
+import { BG_URL, User_Avtar } from "../utils/constants.js";
 
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
@@ -88,7 +88,8 @@ const Login = () => {
         <div>
             <Header />
             <div className="absolute">
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/8200f588-2e93-4c95-8eab-ebba17821657/web/IN-en-20250616-TRIFECTA-perspective_9cbc87b2-d9bb-4fa8-9f8f-a4fe8fc72545_large.jpg"
+                <img 
+                src={BG_URL}
                     alt="logo"
                 />
             </div>
