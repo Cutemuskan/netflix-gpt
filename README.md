@@ -78,6 +78,12 @@ BUGS FIX
    - Get data from TMDB now playimg movies list API
    - data is stored in browse page.
    - create an store for movie data also in redux 
+-  Build Secondary Component
+- Build Movie List
+- Build Movie Card
+- TMDB Image CDN URL
+- Made the browse page amazing with tailwind css
+- usePopular Movies custom hooks
 
   
 
